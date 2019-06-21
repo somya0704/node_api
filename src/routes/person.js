@@ -11,6 +11,12 @@ else{
 
 
 })
+
+router.get('/person/error', (req, res) =>{
+    throw new Error('this is error')
+})
+
+
 //Param property on the request obj
 //router.get('/person/:name', (req,res) => {
   //  res.send(`You have requested a person ${req.params.name}`)
