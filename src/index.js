@@ -3,6 +3,12 @@ let app = express()
 
 
 let personRoute = require('./routes/person')
+
+app.use((req, res, next) => {
+    console.log(`${ new Date().toString() } => ${req.originalUrl}`)
+
+    next()
+})
  
 app.use(express.static('public'))
 
