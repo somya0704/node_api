@@ -4,7 +4,7 @@
   "description": "Rest API using node, express, mongodb",
   "main": "index.js",
   "scripts": {
-    "start":"node src/index.js",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/somya0704/node_api/issues"
   },
-  "homepage": "https://github.com/somya0704/node_api#readme"
+  "homepage": "https://github.com/somya0704/node_api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
