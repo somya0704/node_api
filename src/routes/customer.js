@@ -4,21 +4,18 @@ let router = express.Router()
 
 //Create a new customer
 
-router.post('/customer', (req,res) => {
+router.post('/customer', async (req,res) => {
+   
+  try {
     if(!req.body){
         return res.status(400).send('request body is missing')
     }
-  let model = new CustomerModel(req.body)
-      model.save()
-        .then(doc => {
-           if(!doc || doc.length === 0){
-               return res.status(500).send(doc)
-           }
-           res.status(201).send(doc)
-        })
-    .catch(err => {
-        res.status(500).json()
-    })
+    const customer = new CustomerModel(req.body)
+    const savedCustomer = await customer.save();
+    res.status(201).send(savedCustomer)  
+  } catch (error) {
+    res.status(400).json({"message": "error"})   
+  }
 })
 
 module.exports = router

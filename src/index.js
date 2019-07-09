@@ -1,5 +1,14 @@
 let express = require('express')
 let app = express()
+var mongoose = require('mongoose')
+
+const server = 'ds341837.mlab.com:41837'
+const database = 'learning'
+const user = 'nitinkumar24'
+const password = 'omg123omg123'
+
+
+mongoose.connect("mongodb://test:test123@ds341837.mlab.com:41837/learning");
 
 
 let personRoute = require('./routes/person')
