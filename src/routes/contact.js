@@ -5,21 +5,15 @@ let router = express.Router()
 
 router.get('/contacts', contactController.getContacts);
 
-router.post('/contacts', contactController.newContacts );
+router.post('/contacts', contactController.newContact);
 
-router.get('/contacts/:contact_name', contactController.viewContacts)
+router.get('/contacts/:name', contactController.viewContact)
 
-router.patch('/contacts/:contact_name', contactController.updateContacts)
+router.patch('/contacts/:name', contactController.updateContact)
 
-router.put('/contacts/:contact_name', contactController.updateContacts)
+router.put('/contacts/:name', contactController.updateContact)
 
-router.delete('/contacts/:contact_name', contactController.delContacts)
+router.delete('/contacts/:name', contactController.delContact)
 
 module.exports = router
 
-
-
-//.get(contactController.view)
-//.patch(contactController.update)
-//.put(contactController.update)
-//.delete(contactController.delete);
