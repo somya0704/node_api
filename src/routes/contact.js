@@ -3,9 +3,6 @@ let contactController = require("../controllers/contactController")
 let express = require('express')
 let router = express.Router()
 
-
-router.route('/contacts')
-      .get(contactController.index)
-
+router.get('/contacts', contactController.getContacts);
 
 module.exports = router

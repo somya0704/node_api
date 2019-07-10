@@ -1,19 +1,11 @@
 let Contact = require('../models/contactModel');
 
-//index
-exports.index = (req,res) => {
-    Contact.get((err,contacts) => {
-        if(err){
-            res.json({
-                status: "error",
-                message: err
-            });
-        }
-
-        res.json({
-            status: "success",
-            message: "contact retrieved",
-            data: contacts
-        });
-    });
+export const getContacts = async (req,res) => {
+    try {
+        const contacts = await Contact.find();
+        return res.json({ status: "success", message: "contact retrieved", data: contacts });
+    } catch (error) {
+        res.status(400).json({ error: "something went wrong"})
+        throw error;
+    }
 }         
