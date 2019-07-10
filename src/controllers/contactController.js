@@ -35,3 +35,38 @@ export let viewContacts = async(req,res) => {
         throw error;
     }
 }
+
+export let updateContacts = async(req,res) => {
+    try{
+        contact.name = req.body.name ? req.body.name : contact.name;
+        contact.gender = req.body.gender;
+        contact.email = req.body.email;
+        contact.phone = req.body.phone;
+
+        contact.save((err) => {
+            try{
+                res.json({
+                    message: 'Contact Updated',
+                    data: contact
+                });
+            }    
+            
+            catch(err){
+                res.status(400).json(err);
+            }
+        });  
+    } catch (error) {
+        res.status(400).json({ error: "something went wrong"})
+        throw error;
+    }
+}
+
+export let delContacts = async(req,res) => {
+    try {
+        const contacts = await Contact.remove();
+        return res.json({ status: "success", message: "contact deleted"});
+    } catch (error) {
+        res.status(400).json({ error: "something went wrong"})
+        throw error;
+    }
+}
