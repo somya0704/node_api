@@ -5,4 +5,8 @@ let router = express.Router()
 
 router.get('/contacts', contactController.getContacts);
 
+router.post('/contacts', contactController.newContacts );
+
+
+
 module.exports = router
