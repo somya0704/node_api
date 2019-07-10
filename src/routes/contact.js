@@ -7,6 +7,6 @@ router.get('/contacts', contactController.getContacts);
 
 router.post('/contacts', contactController.newContacts );
 
-
+router.get('/contacts/:contact_name', contactController.viewContacts)
 
 module.exports = router
